@@ -1,0 +1,293 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-reset {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btns-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.register-btn,
+.login-btn {
+    padding: 12px 30px;
+    color: #fff;
+    background-color: #666;
+    border-radius: 10px;
+    outline: 2px solid #666;
+    outline-offset: -1px;
+    transition: background-color 0.2s ease-in-out, outline-offset 0.2s ease-in-out;
+}
+
+.register-btn:focus-visible,
+.login-btn:focus-visible {
+    background-color: rgb(73, 10, 112);
+    outline-offset: 5px;
+}
+
+@media (hover: hover) {
+    .register-btn:hover,
+    .login-btn:hover {
+        background-color: rgb(129, 13, 201);
+        outline-offset: 5px;
+    }
+}
+
+.register-btn:active,
+.login-btn:active {
+    background-color: rgb(73, 10, 112);
+    outline-offset: 5px;
+}
+
+
+.modals-wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 40px;
+    border: 2px solid teal;
+    border-radius: 10px;
+}
+
+.register-form__title {
+    align-self: center;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.register-form__input {
+    padding: 12px 30px;
+    border: none;
+    outline: 2px solid teal;
+    outline-offset: -1px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: outline-offset 0.2s ease-in-out, outline 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.register-form__input:focus-visible{
+    outline-offset: 3px;
+    outline: 2px solid blue;
+  }
+
+  .register-form__input:active{
+    outline-offset: -1px;
+    outline: 2px solid blue;
+    transform: scale(0.9);
+  }
+
+.register-form__btn,
+.login-form__btn {
+    background-color: transparent;
+    align-self: center;
+    width: 100%;
+    padding: 12px 30px;
+    outline: 2px solid #666;
+    outline-offset: -1px;
+    color: #fff;
+    background-color: rgb(99, 17, 150);
+    border-radius: 10px;
+    font-size: 20px;
+    transition: background-color 0.2s ease-in-out, outline-offset 0.2s ease-in-out;
+}
+
+.register-form__btn:focus-visible,
+.login-form__btn:focus-visible  {
+    background-color: rgb(73, 10, 112);
+    outline-offset: 5px;
+}
+
+@media (hover: hover) {
+.register-form__btn:hover,
+.login-form__btn:hover {
+        background-color: rgb(152, 13, 238);
+        outline-offset: 5px;
+    }
+}
+
+.register-form__btn:active,
+.login-form__btn:active {
+    background-color: rgb(73, 10, 112);
+    outline-offset: 5px;
+}
+
+.register-form__btn:disabled,
+.login-form__btn:disabled {
+    cursor: auto;
+    user-select: none;
+    pointer-events: none;
+    background-color: #666;
+    opacity: 0.5;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 40px;
+    border: 2px solid teal;
+    border-radius: 10px;
+}
+
+.login-form__title {
+    align-self: center;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.login-form__input {
+    padding: 12px 30px;
+    border: none;
+    outline: 2px solid teal;
+    outline-offset: -1px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: outline-offset 0.2s ease-in-out, outline 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.login-form__input:focus-visible{
+    outline-offset: 3px;
+    outline: 2px solid blue;
+  }
+
+  .login-form__input:active{
+    outline-offset: -1px;
+    outline: 2px solid blue;
+    transform: scale(0.9);
+  }
+
+.modal {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.modal.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+    transform: translateY(-200px);
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out, padding 0.3s ease-in-out;
+  }
+    
+  .modal-content.active {
+    padding: 20px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .register-form__label,
+  .login-form__label {
+    position: relative;
+    padding-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (hover: hover) {
+    .register-form__label:hover .register-form__input,
+    .login-form__label:hover .login-form__input{
+        outline-offset: 3px;
+    }
+  }
+
+  .register-form__error,
+  .login-form__error {
+    position: absolute;
+    top: 65%;
+    align-self: center;
+    text-align: center;
+    user-select: none;
+    font-size: 12px;
+    color: red;
+  }
+
+  .register-form__name.error,
+  .register-form__surname.error,
+  .register-form__nickname.error,
+  .register-form__email.error,
+  .register-form__password.error,
+  
+  
+  .login-form__login.error,
+  .login-form__password.error  {
+    outline: 2px solid red;
+  }
+
+  .register-form__name.valid,
+  .register-form__surname.valid,
+  .register-form__nickname.valid,
+  .register-form__email.valid,
+  .register-form__password.valid,
+  
+  
+  .login-form__login.valid,
+  .login-form__password.valid {
+    outline: 2px solid green;
+  }
+  
