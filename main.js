@@ -83,13 +83,23 @@ UserInfo.style.width = 'max-content';
 UserInfo.style.margin = '0 auto';
 UserInfo.style.textAlign = 'center';
 document.body.append(UserInfo);
-UserInfo.innerHTML = `
-<strong>Последний активный юзер:</strong> <strong>${currentUser.surname.charAt(0).toUpperCase() + currentUser.surname.slice(1)} ${currentUser.name.charAt(0).toUpperCase() + currentUser.name.slice(1)}!</strong> <br>
-Никнейм: <strong>${currentUser.nickname.charAt(0).toUpperCase() + currentUser.nickname.slice(1)}</strong> <br>
-Почта: <strong>${currentUser.email}</strong> <br>
-
-Хорошего дня :)
-`;
+if (currentUser !== undefined) {
+  UserInfo.innerHTML = `
+  <strong>Последний активный юзер:</strong> <strong>${currentUser.surname.charAt(0).toUpperCase() + currentUser.surname.slice(1)} ${currentUser.name.charAt(0).toUpperCase() + currentUser.name.slice(1)}!</strong> <br>
+  Никнейм: <strong>${currentUser.nickname.charAt(0).toUpperCase() + currentUser.nickname.slice(1)}</strong> <br>
+  Почта: <strong>${currentUser.email}</strong> <br>
+  
+  Хорошего дня :)
+  `;
+} else {
+  UserInfo.innerHTML = `
+  <strong>Последний активный юзер:</strong> <strong>---</strong> <br>
+  Никнейм: <strong>---</strong> <br>
+  Почта: <strong>---</strong> <br>
+  
+  Хорошего дня :)
+  `;
+}
 
 
 // функция, создающая форму регистрации
